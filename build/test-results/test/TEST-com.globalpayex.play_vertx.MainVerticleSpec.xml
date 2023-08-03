@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.globalpayex.play_vertx.MainVerticleSpec" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-08-03T09:55:10" hostname="Mehuls-MacBook-Pro.local" time="1.241">
+  <properties/>
+  <testcase name="testing the deployment and undeployment of the MainVerticle" classname="com.globalpayex.play_vertx.MainVerticleSpec" time="0.805"/>
+  <testcase name="test the GET call for the root route" classname="com.globalpayex.play_vertx.MainVerticleSpec" time="0.435"/>
+  <system-out><![CDATA[HTTP server started on port 8888
+HTTP server started on port 8888
+]]></system-out>
+  <system-err><![CDATA[Aug 03, 2023 3:25:10 PM io.netty.resolver.dns.DnsServerAddressStreamProviders <clinit>
+WARNING: Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+]]></system-err>
+</testsuite>
