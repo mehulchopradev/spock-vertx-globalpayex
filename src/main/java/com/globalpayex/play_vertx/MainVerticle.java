@@ -28,10 +28,10 @@ public class MainVerticle extends AbstractVerticle {
     vertx
       .createHttpServer()
       .requestHandler(router)
-      .listen(8888, http -> {
+      .listen(config().getInteger("http.port"), http -> {
         if (http.succeeded()) {
           startPromise.complete();
-          System.out.println("HTTP server started on port 8888");
+          System.out.println("HTTP server started on port " + config().getInteger("http.port"));
         } else {
           startPromise.fail(http.cause());
         }

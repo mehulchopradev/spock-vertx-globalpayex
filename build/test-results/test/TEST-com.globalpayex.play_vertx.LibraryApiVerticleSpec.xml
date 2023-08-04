@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.globalpayex.play_vertx.LibraryApiVerticleSpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-08-04T10:02:25" hostname="Mehuls-MacBook-Pro.local" time="1.59">
+  <properties/>
+  <testcase name="test the GET a single book api endpoint" classname="com.globalpayex.play_vertx.LibraryApiVerticleSpec" time="1.59"/>
+  <system-out><![CDATA[Library api server started on port 8082
+{0=Book{id=0, title='prog in Java', pages=900, price=1000.0}, 1=Book{id=1, title='Python programming', pages=870, price=1500.0}}
+{
+  "id" : 1,
+  "title" : "Python programming",
+  "pages" : 870,
+  "price" : 1500.0
+}
+]]></system-out>
+  <system-err><![CDATA[Aug 04, 2023 3:32:25 PM io.netty.resolver.dns.DnsServerAddressStreamProviders <clinit>
+WARNING: Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+]]></system-err>
+</testsuite>

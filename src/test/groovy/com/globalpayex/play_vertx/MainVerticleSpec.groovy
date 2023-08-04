@@ -1,10 +1,12 @@
 package com.globalpayex.play_vertx
 
+import io.vertx.core.DeploymentOptions
 import io.vertx.core.Vertx
 import io.vertx.core.http.HttpClient
 import io.vertx.core.http.HttpClientRequest
 import io.vertx.core.http.HttpClientResponse
 import io.vertx.core.http.HttpMethod
+import io.vertx.core.json.JsonObject
 import spock.lang.Specification
 import spock.util.concurrent.BlockingVariable
 
@@ -12,8 +14,16 @@ class MainVerticleSpec extends Specification {
 
   Vertx vertx
 
+  DeploymentOptions deploymentOptions
+
+  static final Integer TEST_PORT = 8082
+
   def setup() {
     vertx = Vertx.vertx()
+    deploymentOptions = new DeploymentOptions()
+    def jsonObject = new JsonObject()
+      .put('http.port', TEST_PORT)
+    deploymentOptions.setConfig jsonObject
   }
 
   def cleanup() {
@@ -58,7 +68,7 @@ class MainVerticleSpec extends Specification {
     def undeploymentResult = new BlockingVariable<Boolean>()
 
     when:
-    vertx.deployVerticle(new MainVerticle()) { deploymentAsyncResult ->
+    vertx.deployVerticle(new MainVerticle(), deploymentOptions) { deploymentAsyncResult ->
       deploymentResult.set(deploymentAsyncResult.succeeded())
 
       vertx.undeploy(deploymentAsyncResult.result()) {undeploymentAsyncResult ->
@@ -78,10 +88,10 @@ class MainVerticleSpec extends Specification {
     def actualResponseContent = new BlockingVariable<String>()
     def endpoint = '/'
     def host = 'localhost'
-    def port = 8888
+    def port = TEST_PORT
 
     when:
-    vertx.deployVerticle(new MainVerticle()) {deploymentAsyncResult ->
+    vertx.deployVerticle(new MainVerticle(), deploymentOptions) {deploymentAsyncResult ->
       actualDeploymentResult.set(deploymentAsyncResult.succeeded())
       if (deploymentAsyncResult.succeeded()) {
         HttpClient client = vertx.createHttpClient()
