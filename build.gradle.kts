@@ -31,6 +31,7 @@ application {
 dependencies {
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-web")
+  implementation("io.vertx:vertx-mongo-client:4.4.4")
   testImplementation("org.apache.groovy:groovy-all:4.0.13")
   testImplementation("net.bytebuddy:byte-buddy:1.14.5")
   testImplementation("org.objenesis:objenesis:3.2")

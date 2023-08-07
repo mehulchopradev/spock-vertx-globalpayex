@@ -1,12 +1,14 @@
 package com.globalpayex.play_vertx.library.domain;
 
+import io.vertx.core.json.JsonObject;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Book {
 
-  private static AtomicInteger atomicInteger = new AtomicInteger();
+  // private static AtomicInteger atomicInteger = new AtomicInteger();
 
-  private Integer id;
+  private String id;
 
   private String title;
 
@@ -15,7 +17,7 @@ public class Book {
   private Float price;
 
   public Book() {
-    this.id = atomicInteger.getAndIncrement();
+    this.id = "";
   }
 
   public Book(String title, Integer pages, Float price) {
@@ -25,8 +27,19 @@ public class Book {
     this.price = price;
   }
 
-  public Integer getId() {
+  public Book(String id, String title, Integer pages, Float price) {
+    this.id = id;
+    this.title = title;
+    this.pages = pages;
+    this.price = price;
+  }
+
+  public String getId() {
     return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public String getTitle() {
@@ -61,5 +74,18 @@ public class Book {
       ", pages=" + pages +
       ", price=" + price +
       '}';
+  }
+
+  public JsonObject toJson() {
+    JsonObject jsonObject = new JsonObject()
+      .put("title", this.title)
+      .put("price", this.price)
+      .put("pages", this.pages);
+
+    if (this.id != null && !this.id.isEmpty()) {
+      jsonObject.put("_id", this.id);
+    }
+
+    return jsonObject;
   }
 }
