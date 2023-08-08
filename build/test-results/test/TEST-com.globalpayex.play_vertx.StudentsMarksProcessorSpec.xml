@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.globalpayex.play_vertx.StudentsMarksProcessorSpec" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-08-08T09:15:44" hostname="Mehuls-MacBook-Pro.local" time="0.889">
+  <properties/>
+  <testcase name="test the processMarks producer function" classname="com.globalpayex.play_vertx.StudentsMarksProcessorSpec" time="0.889"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Aug 08, 2023 2:45:44 PM io.netty.resolver.dns.DnsServerAddressStreamProviders <clinit>
+WARNING: Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+]]></system-err>
+</testsuite>
